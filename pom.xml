@@ -6,7 +6,7 @@
 	<groupId>com.webdev</groupId>
 	<artifactId>employeesofthecompany</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 
 	<name>employeesofthecompany</name>
 	<description>GoJava dev my final project (I.Kozhushko)</description>
