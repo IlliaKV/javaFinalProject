@@ -41,6 +41,8 @@ public class AppReadyListener {
     @EventListener(ApplicationReadyEvent.class)
     public void appReady(){
 	System.out.println("app ready");
+addDataToDB();
+System.out.println("addDataToDB ready");
     }
 
     public void addDataToDB(){
