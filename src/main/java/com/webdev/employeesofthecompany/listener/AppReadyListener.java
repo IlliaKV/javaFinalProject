@@ -40,7 +40,7 @@ public class AppReadyListener {
 
     @EventListener(ApplicationReadyEvent.class)
     public void appReady(){
-        addDataToDB();
+
     }
 
     public void addDataToDB(){
