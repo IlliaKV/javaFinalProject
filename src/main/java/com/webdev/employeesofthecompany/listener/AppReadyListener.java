@@ -40,9 +40,7 @@ public class AppReadyListener {
 
     @EventListener(ApplicationReadyEvent.class)
     public void appReady(){
-	System.out.println("app ready");
-addDataToDB();
-System.out.println("addDataToDBready");
+        System.out.println("app ready");
     }
 
     public void addDataToDB(){
@@ -128,5 +126,22 @@ System.out.println("addDataToDBready");
 
         employeeService.save(employee1);
         employeeService.save(employee2);
+
+        //Add EventSheets
+        //2 rows
+        EventSheet eventSheet1 = new EventSheet();
+        eventSheet1.setEvent(eventService.getById(1));
+        eventSheet1.setEmployee(employeeService.getById(1));
+        eventSheet1.setNumberOfHours(8);
+        eventSheet1.setDateStart(parseDateDdMmYyyy("19-07-2018"));
+
+        EventSheet eventSheet2 = new EventSheet();
+        eventSheet2.setEvent(eventService.getById(1));
+        eventSheet2.setEmployee(employeeService.getById(2));
+        eventSheet2.setNumberOfHours(8);
+        eventSheet2.setDateStart(parseDateDdMmYyyy("19-07-2018"));
+
+        eventSheetService.save(eventSheet1);
+        eventSheetService.save(eventSheet2);
     }
 }
