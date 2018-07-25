@@ -12,8 +12,8 @@ import java.util.Date;
 @Repository
 public interface EmployeeRepository extends JpaRepository<Employee, Long> {
 
-    @Query(value = "select sum(event_sheet.number_of_hours) * position.hourly_rate \n" +
-            "from event, event_sheet, employee, position \n" +
-            "where event_sheet.employee_id=employee.id and event_sheet.event_id=event.id and employee.position_id=position.id and event_sheet.date_start between ? and ? and employee.email= ?", nativeQuery = true)
-    BigDecimal salaryCountByDateStartAndEmail(Date dateFrom, Date dateTo, String emailOfEmployee);
+    @Query(nativeQuery = true, value = "select sum(es.number_of_hours) * p.hourly_rate from event e, event_sheet es, employee em, position p where es.employee_id=em.id and es.event_id=e.id and em.position_id=p.id and es.date_start between :dateFrom and :dateTo and em.email=:emailOfEmployee")
+    String salaryCountByDateStartAndEmail(@Param("dateFrom") String dateFrom,
+                                          @Param("dateTo") String dateTo,
+                                          @Param("emailOfEmployee") String emailOfEmployee);
 }

@@ -1,7 +1,6 @@
 package com.webdev.employeesofthecompany.listener;
 
 import com.webdev.employeesofthecompany.domain.*;
-import com.webdev.employeesofthecompany.service.SalaryScheeduleService.SchedulerQuartzEveryMonthService;
 import com.webdev.employeesofthecompany.service.jpa.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
@@ -9,10 +8,11 @@ import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
+
 import java.util.Set;
 import java.util.LinkedHashSet;
 
-import static com.webdev.employeesofthecompany.service.ParseDateService.parseDate;
+import static com.webdev.employeesofthecompany.service.ParseDateService.parseDateDdMmYyyy;
 
 @Component
 public class AppReadyListener {
@@ -38,18 +38,11 @@ public class AppReadyListener {
     @Autowired
     private EventSheetService eventSheetService;
 
-    @Autowired
-    private SchedulerQuartzEveryMonthService schedulerQuartzEveryMonthService;
-
     @EventListener(ApplicationReadyEvent.class)
     public void appReady(){
         System.out.println("App ready");
 
-        try {
-            schedulerQuartzEveryMonthService.run();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+
 
         //addDataToDB();
     }
@@ -72,7 +65,7 @@ public class AppReadyListener {
         for (String str:
                 statusStr) {
             Status status = new Status();
-            status.setDate(parseDate("19-07-2018"));
+            status.setDate(parseDateDdMmYyyy("19-07-2018"));
             status.setNameStatus(str);
             statusService.save(status);
         }
@@ -142,13 +135,13 @@ public class AppReadyListener {
         eventSheet1.setEvent(eventService.getById(1));
         eventSheet1.setEmployee(employeeService.getById(1));
         eventSheet1.setNumberOfHours(8);
-        eventSheet1.setDateStart(parseDate("19-07-2018"));
+        eventSheet1.setDateStart(parseDateDdMmYyyy("19-07-2018"));
 
         EventSheet eventSheet2 = new EventSheet();
         eventSheet2.setEvent(eventService.getById(1));
         eventSheet2.setEmployee(employeeService.getById(2));
         eventSheet2.setNumberOfHours(8);
-        eventSheet2.setDateStart(parseDate("19-07-2018"));
+        eventSheet2.setDateStart(parseDateDdMmYyyy("19-07-2018"));
 
         eventSheetService.save(eventSheet1);
         eventSheetService.save(eventSheet2);

@@ -40,7 +40,7 @@ public class EmployeeService {
         employeeRepository.save(employee);
     }
 
-    public BigDecimal getSalary(Date dateFrom, Date dateTo, String emailOfEmployee){
+    public String getSalary(String dateFrom, String dateTo, String emailOfEmployee){
         return employeeRepository.salaryCountByDateStartAndEmail(dateFrom, dateTo, emailOfEmployee);
     }
 }
