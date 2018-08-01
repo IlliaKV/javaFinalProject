@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Редактирование события</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+<div>
+<div th:replace="menu-header.html :: top-menu"/>
+    <div class="w3-container w3-margin-top">
+        <div class="w3-card w3-grey">
+            <div class="w3-container w3-green">
+                <h3>Редактировать событие</h3>
+            </div>
+        </div>
+
+        <form action="/moder/events/edit" method="post">
+            <div class="w3-container w3-margin-top w3-padding w3-light-grey">
+                <input type="hidden" th:value="${eventSheet.id}" name="eventSheetId"/>
+                <h4>Дата:</h4>
+                <input th:value="${eventSheet.dateStart}" class="w3-input w3-border" type="datetime-local" name="dateStart"/>
+                <h4>Количество часов:</h4>
+                <input th:value="${eventSheet.numberOfHours}" class="w3-input w3-border" type="text" name="numberOfHours"/>
+                <h4>Сотрудник:</h4>
+                <div class="w3-dropdown-hover" >
+                    <select class="form-control" name="employee">
+                        <option th:each="employee : ${employees}" th:value="${employee.id}" th:text="${employee.firstName} + ' ' + ${employee.lastName}"></option>
+                    </select>
+                </div>
+                <h4>Тип события:</h4>
+                <div class="w3-dropdown-hover" >
+                    <select class="form-control" name="event">
+                        <option th:each="event : ${events}" th:value="${event.id}" th:text="${event.nameEvent}"></option>
+                    </select>
+                </div>
+
+                <br style="height: 24px"/>
+
+                <div class="w3-container w3-margin-top">
+                    <a href="/moder/events/events" class="w3-button w3-gray">Отмена редактирования</a>
+                    <input type="submit" class="w3-button w3-right w3-green" value="Завершить редактирование"/>
+                </div>
+
+                <br style="height: 24px"/>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>

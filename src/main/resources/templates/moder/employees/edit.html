@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Редактирование сотрудника</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+<div>
+<div th:replace="menu-header.html :: top-menu"/>
+    <div class="w3-container w3-margin-top">
+        <div class="w3-card w3-grey">
+            <div class="w3-container w3-green">
+                <h3>Редактировать сотрудника</h3>
+            </div>
+        </div>
+
+        <form action="/moder/employees/edit" method="post">
+            <div class="w3-container w3-margin-top w3-padding w3-light-grey">
+                <input type="hidden" th:value="${employee.id}" name="employeeId"/>
+                <h4>Имя:</h4>
+                <input th:value="${employee.firstName}" class="w3-input w3-border" type="text" name="firstName"/>
+                <h4>Фамилия и отчество:</h4>
+                <input th:value="${employee.lastName}" class="w3-input w3-border" type="text" name="lastName"/>
+                <h4>Номер телефона:</h4>
+                <input th:value="${employee.phone}" class="w3-input w3-border" type="text" name="phone"/>
+                <h4>Почта:</h4>
+                <input th:value="${employee.email}" class="w3-input w3-border" type="text" name="email"/>
+                <h4>Департамент:</h4>
+                <div class="w3-dropdown-hover" >
+                    <select class="form-control" name="department">
+                        <option th:each="department : ${departments}" th:value="${department.id}" th:text="${department.nameDepartment}"></option>
+                    </select>
+                </div>
+                <h4>Статус:</h4>
+                <div class="w3-dropdown-hover" >
+                    <select class="form-control" name="status">
+                        <option th:each="status : ${statuses}" th:value="${status.id}" th:text="${status.nameStatus}"></option>
+                    </select>
+                </div>
+                <h4>Должность:</h4>
+                <div class="w3-dropdown-hover" >
+                    <select class="form-control" name="position">
+                        <option th:each="position : ${positions}" th:value="${position.id}" th:text="${position.namePosition}"></option>
+                    </select>
+                </div>
+
+                <br style="height: 24px"/>
+
+                <div class="w3-container w3-margin-top">
+                    <a href="/moder/employees/employees" class="w3-button w3-gray">Отмена редактирования</a>
+                    <input type="submit" class="w3-button w3-right w3-green" value="Завершить редактирование"/>
+                </div>
+
+                <br style="height: 24px"/>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>

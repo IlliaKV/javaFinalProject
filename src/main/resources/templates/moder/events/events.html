@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Все события</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+<body>
+<div th:replace="menu-header.html :: top-menu"/>
+    <div class="w3-container w3-margin">
+        <div class="w3-card">
+            <div class="w3-container w3-blue">
+                <a href="/moder/events/create" class="w3-button w3-light-blue">Добавить событие</a>
+            </div>
+
+
+            <div th:each="event : ${events}" class="w3-container">
+                <div class="w3-container w3-yellow">
+                    <h4 th:text="${event.nameEvent}">nameEvent</h4>
+                </div>
+                <div class="w3-container w3-light-gray w3-panel w3-card" style="width:80%">
+                    <div th:each="eventSheet : ${event.eventSheets}" class="w3-container">
+                        <div class="w3-container w3-light-gray w3-panel w3-card" style="width:80%">
+                            <div class="w3-container w3-light-green w3-left w3-panel w3-card">
+                                <h5 th:text="${eventSheet.employee.firstName} + ' ' + ${eventSheet.employee.lastName}">Имя</h5>
+                                <h6 th:text="'Дата: ' + ${#dates.format(eventSheet.dateStart, 'dd-MM-yyyy')}">dateStart</h6>
+                                <h6 th:text="'Количество часов: ' + ${eventSheet.numberOfHours}">numberOfHours</h6>
+                            </div>
+
+                            <div class="w3-container w3-right w3-panel w3-card">
+                                <div class="w3-container w3-panel">
+                                    <a th:href="'/moder/events/edit?eventSheetId=' + ${eventSheet.id}" href="#" class="w3-button w3-light-blue">Редактировать</a>
+                                </div>
+                                <div class="w3-container w3-panel">
+                                    <a th:href="'/moder/events/delete?eventSheetId=' + ${eventSheet.id}" href="#" class="w3-button w3-orange">Удалить</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</body>
+</body>
+</html>

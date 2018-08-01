@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Панель модератора</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+<body>
+<div th:replace="menu-header.html :: top-menu"/>
+    <div class="w3-container w3-margin">
+        <div class="w3-card">
+            <div class="w3-container">
+                <div class="w3-container w3-margin-top">
+                    <a href="/moder/employees/employees" class="w3-button w3-blue">Сотрудники</a>
+                </div>
+                <div class="w3-container w3-margin-top w3-margin-bottom">
+                    <a href="/moder/events/events" class="w3-button w3-yellow">Менеджер событий</a>
+                </div>
+                <div class="w3-container w3-margin-top w3-margin-bottom">
+                    <a href="/moder/index" class="w3-button w3-light-green">Департаменты</a>
+                </div>
+                <div class="w3-container w3-margin-top">
+                    <a href="/moder/index" class="w3-button w3-blue">Должности</a>
+                </div>
+                <div class="w3-container w3-margin-top w3-margin-bottom">
+                    <a href="/moder/index" class="w3-button w3-yellow">Статусы</a>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Все сотрудники</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+<body>
+<div th:replace="menu-header.html :: top-menu"/>
+    <div class="w3-container w3-margin">
+        <div class="w3-card">
+            <div class="w3-container w3-blue">
+                <h4 th:text="'Мы имеем ' + ${employees.size()} + ' сотрудн.'">Мы имеем 23 сотрудн.</h4>
+                <a href="/moder/employees/create" class="w3-button w3-light-blue">Добавить сотрудника</a>
+            </div>
+
+
+            <div th:each="employee : ${employees}" class="w3-container">
+                <div class="w3-container w3-light-gray w3-panel w3-card" style="width:70%">
+                    <div class="w3-container w3-light-green w3-left w3-panel w3-card">
+                        <h5 th:text="${employee.firstName} + ' ' + ${employee.lastName}">Имя</h5>
+                        <h6 th:text="'Номер телефона: ' + ${employee.phone}">phone</h6>
+                        <h6 th:text="'Почта: ' + ${employee.email}">email</h6>
+                        <h6 th:text="${employee.department != null} ? 'Департамент: ' + ${employee.department.nameDepartment} : 'Департамент: нет'">department</h6>
+                        <h6 th:text="${employee.status != null} ? 'Статус: ' + ${employee.status.nameStatus} : 'Статус: нет'">status</h6>
+                        <h6 th:text="${employee.position != null} ? 'Должность: ' + ${employee.position.namePosition} : 'Должность: нет'">position</h6>
+                        <h6 th:text="${employee.position != null} ? 'Часовая ставка: ' + ${employee.position.hourlyRate} : 'Часовая ставка: нет'">hourlyRate</h6>
+                    </div>
+
+
+                    <div class="w3-container w3-right w3-panel w3-card">
+                        <div class="w3-container w3-panel">
+                            <a th:href="'/moder/employees/edit?employeeId=' + ${employee.id}" href="#" class="w3-button w3-light-blue">Редактировать</a>
+                        </div>
+                        <div class="w3-container w3-panel">
+                            <a th:href="'/moder/employees/delete?employeeId=' + ${employee.id}" href="#" class="w3-button w3-orange">Удалить</a>
+                        </div>
+                        <div class="w3-container w3-panel">
+                            <a th:href="'/moder/employees/eventssheet?employeeId=' + ${employee.id}" href="#" class="w3-button w3-blue">События</a>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</body>
+</body>
+</html>

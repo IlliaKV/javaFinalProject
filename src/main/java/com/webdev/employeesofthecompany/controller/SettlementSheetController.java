@@ -23,7 +23,6 @@ public class SettlementSheetController extends BaseSecurityController {
     public ModelAndView geеSettlementsheetsOfEmployee(@RequestParam(required = false, defaultValue = "42") String value) {
 
         ModelAndView modelAndView = modelAndViewSecurityBase("employees/settlementsheets");
-
         modelAndView.addObject("employee", getCurrentUser());
         modelAndView.addObject("settlementSheets", getCurrentUser().getSettlementSheets());
 

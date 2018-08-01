@@ -29,4 +29,9 @@ public class ParseDateService {
             DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
             return dateFormat.format(date);
     }
+
+    public static Date parseDateToStringYyyyMmDdTHhMm(String date) throws ParseException {
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'hh:mm");
+        return dateFormat.parse(date);
+    }
 }
