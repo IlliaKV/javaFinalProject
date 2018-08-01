@@ -1,37 +1,32 @@
 package com.webdev.employeesofthecompany.controller;
 
-import com.webdev.employeesofthecompany.domain.Department;
 import com.webdev.employeesofthecompany.domain.Employee;
-import com.webdev.employeesofthecompany.service.jpa.DepartmentService;
+import com.webdev.employeesofthecompany.domain.SettlementSheet;
 import com.webdev.employeesofthecompany.service.jpa.EmployeeService;
-import com.webdev.employeesofthecompany.service.jpa.PositionService;
-import com.webdev.employeesofthecompany.service.jpa.StatusService;
+import com.webdev.employeesofthecompany.service.jpa.SettlementSheetService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-public class EmployeeController extends BaseSecurityController {
+public class SettlementSheetController extends BaseSecurityController {
 
     @Autowired
     private EmployeeService employeeService;
 
     @Autowired
-    private DepartmentService departmentService;
+    private SettlementSheetService settlementSheetService;
 
-    @Autowired
-    private StatusService statusService;
+    @GetMapping("/employees/settlementsheets")
+    public ModelAndView geеSettlementsheetsOfEmployee(@RequestParam(required = false, defaultValue = "42") String value) {
 
-    @Autowired
-    private PositionService positionService;
+        ModelAndView modelAndView = modelAndViewSecurityBase("employees/settlementsheets");
 
-    @GetMapping("/employees/employee")
-    public ModelAndView getEmploee(@RequestParam(required = false, defaultValue = "42") String value) {
-        ModelAndView modelAndView = modelAndViewSecurityBase("employees/employee");
         modelAndView.addObject("employee", getCurrentUser());
+        modelAndView.addObject("settlementSheets", getCurrentUser().getSettlementSheets());
+
         return modelAndView;
     }
 

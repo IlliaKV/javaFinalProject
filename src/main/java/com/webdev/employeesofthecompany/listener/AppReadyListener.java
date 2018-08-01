@@ -47,7 +47,6 @@ public class AppReadyListener {
         //addDataToDB();
     }
 
-
     public void addDataToDB(){
         //Add Positions
         //2 rows
@@ -65,7 +64,6 @@ public class AppReadyListener {
         for (String str:
                 statusStr) {
             Status status = new Status();
-            status.setDate(parseDateDdMmYyyy("19-07-2018"));
             status.setNameStatus(str);
             statusService.save(status);
         }

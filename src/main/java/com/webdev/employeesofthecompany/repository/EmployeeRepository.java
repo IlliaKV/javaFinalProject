@@ -1,6 +1,7 @@
 package com.webdev.employeesofthecompany.repository;
 
 import com.webdev.employeesofthecompany.domain.Employee;
+import com.webdev.employeesofthecompany.domain.Status;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -11,6 +12,9 @@ import java.util.Date;
 
 @Repository
 public interface EmployeeRepository extends JpaRepository<Employee, Long> {
+
+//    @Query("from Status s, Employe e where e. r.nameRole = :name")
+//    Status getStatusByEmployeeId(@Param("id") long id);
 
     @Query("from Employee e where e.email = :email")
     Employee getEmployeeByEmail(@Param("email") String email);

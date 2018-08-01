@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Реєстрація</title>
+    <title>Регистрация</title>
 
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -9,18 +9,19 @@
 <body class="w3-light-grey">
 
 <div class="w3-container w3-red" th:if="${error}">
-    <h3 th:text="${error}">Помилка</h3>
+    <h3 th:text="${error}">Ошибка</h3>
 </div>
 
 <div class="w3-container">
     <div class="w3-card w3-white" style="width: 600px; margin: auto">
-        <div class="w3-container w3-light-green"><h3>Реєстрація</h3></div>
+        <div class="w3-container w3-light-green"><h3>Регистрация</h3></div>
         <div class="w3-panel w3-padding-16">
             <form th:action="@{/register}" method="post">
-                <!--<div><label> Email : <input placeholder="Введите электронную почту" class="w3-input w3-border w3-margin-bottom" type="text" name="email"/> </label></div>-->
-                <!--<div><label> Пароль: <input placeholder="Введите пароль" class="w3-input w3-border w3-margin-bottom" type="password" name="password"/> </label></div>-->
-                <!--<div><label> Имя : <input placeholder="Введите имя" class="w3-input w3-border w3-margin-bottom" type="text" name="firstName"/> </label></div>-->
-                <!--<div><label> Фамилия : <input placeholder="Введите фамилию" class="w3-input w3-border w3-margin-bottom" type="text" name="lastName"/> </label></div>-->
+                <div><label> Email : <input placeholder="Введите электронную почту" class="w3-input w3-border w3-margin-bottom" type="text" name="email"/> </label></div>
+                <div><label> Пароль: <input placeholder="Введите пароль" class="w3-input w3-border w3-margin-bottom" type="password" name="password"/> </label></div>
+                <div><label> Имя : <input placeholder="Введите имя" class="w3-input w3-border w3-margin-bottom" type="text" name="firstName"/> </label></div>
+                <div><label> Фамилия и отчество : <input placeholder="Введите фамилию" class="w3-input w3-border w3-margin-bottom" type="text" name="lastName"/> </label></div>
+                <div><label> Номер телефона : <input placeholder="Номер телефона, например 0931212121" class="w3-input w3-border w3-margin-bottom" type="text" name="phone"/> </label></div>
                 <div><input class="w3-button w3-blue w3-right" type="submit" value="Зарегистрироваться"/></div>
             </form>
         </div>

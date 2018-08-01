@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Все производители</title>
+    <title>Мои данные</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 </head>
@@ -10,36 +10,32 @@
 <div th:replace="menu-header.html :: top-menu"/>
     <div class="w3-container w3-margin">
         <div class="w3-card">
-            <div class="w3-container w3-blue">
+            <!--<div class="w3-container w3-blue">-->
                 <!--<h3 th:text="'Мы имеем ' + ${manufactorers.size()} + ' производителей'">Мы имеем 23 производителей</h3>-->
                 <!--<a href="/manufactorer/add" class="w3-button w3-light-blue">Добавить производителя</a>-->
-            </div>
-
-            <div style="height: 12px;"></div>
-
-            <!--<div th:each="manufactorer : ${manufactorers}" class="w3-container">-->
-                <div class="w3-container w3-light-gray">
+            <!--</div>-->
+                <!--<div class="w3-container w3-light-gray">-->
                     <div class="w3-container w3-light-green w3-left">
-                        <h3 th:text="${employee.firstName}">firstName</h3>
-                        <h3 th:text="${employee.lastName}">lastName</h3>
-                        <h3 th:text="${employee.phone}">phone</h3>
-                        <h3 th:text="${employee.email}">email</h3>
+                        <div class="w3-container w3-green">
+                            <h2 th:text="${employee.firstName} + ' ' + ${employee.lastName}">firstName</h2>
+                        </div>
+                        <!--<h3 th:text="">lastName</h3>-->
+                        <h3 th:text="'Номер телефона: ' + ${employee.phone}">phone</h3>
+                        <h3 th:text="'Почта: ' + ${employee.email}">email</h3>
+                        <h3 th:text="${employee.department != null} ? 'Департамент: ' + ${employee.department.nameDepartment} : 'Департамент: нет'">department</h3>
+                        <h3 th:text="${employee.status != null} ? 'Статус: ' + ${employee.status.nameStatus} : 'Статус: нет'">status</h3>
+                        <h3 th:text="${employee.position != null} ? 'Должность: ' + ${employee.position.namePosition} : 'Должность: нет'">position</h3>
+                        <h3 th:text="${employee.position != null} ? 'Часовая ставка: ' + ${employee.position.hourlyRate} : 'Часовая ставка: нет'">hourlyRate</h3>
                     </div>
 
-                    <div style="height: 12px;"></div>
+                    <!--<div style="height: 12px;"></div>-->
 
                     <!--<div class="w3-container w3-right">-->
                         <!--<a th:href="'/manufactorer/edit/?manufacturerId=' + ${manufactorer.id}" href="#" class="w3-button w3-light-blue">Редактировать производителя</a>-->
                         <!--<a th:href="'/manufactorer/delete/?manufacturerId=' + ${manufactorer.id}" href="#" class="w3-button w3-orange">Удалить производителя</a>-->
                         <!--<a th:href="'/productsofmanufactorer?manufactorerId=' + ${manufactorer.id}" href="#" class="w3-button w3-blue w3-right w3-margin-left">Посмотреть на товары</a>-->
                     <!--</div>-->
-
-                    <div style="height: 12px;"></div>
-                </div>
-
-                <div style="height: 12px;"></div>
-            <!--</div>-->
-            <div style="height: 12px;"></div>
+                <!--</div>-->
         </div>
     </div>
 </body>

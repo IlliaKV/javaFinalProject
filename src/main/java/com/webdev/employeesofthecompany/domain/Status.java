@@ -11,9 +11,6 @@ public class Status {
     @Column(name = "id")
     private long id;
 
-    @Column(name = "date")
-    private Date date;
-
     @Column(name = "nameStatus")
     private String nameStatus;
 
@@ -34,14 +31,6 @@ public class Status {
 
     public void setId(long id) {
         this.id = id;
-    }
-
-    public Date getDate() {
-        return date;
-    }
-
-    public void setDate(Date date) {
-        this.date = date;
     }
 
     public String getNameStatus() {
