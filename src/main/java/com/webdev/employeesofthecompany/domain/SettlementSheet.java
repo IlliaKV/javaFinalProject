@@ -18,9 +18,20 @@ public class SettlementSheet {
     @Column(name = "salary")
     private BigDecimal salary;
 
+    @Column(name = "monthlyHoursWorked")
+    private int monthlyHoursWorked;
+
     @JoinColumn(name = "employeeId")
     @ManyToOne(fetch = FetchType.EAGER)
     private Employee employee;
+
+    public int getMonthlyHoursWorked() {
+        return monthlyHoursWorked;
+    }
+
+    public void setMonthlyHoursWorked(int monthlyHoursWorked) {
+        this.monthlyHoursWorked = monthlyHoursWorked;
+    }
 
     public long getId() {
         return id;

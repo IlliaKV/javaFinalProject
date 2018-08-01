@@ -9,6 +9,8 @@ import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 
+import static com.webdev.employeesofthecompany.service.ParseDateService.parseDateToStringYyyyMmDd;
+
 @Service
 public class EmployeeService {
 
@@ -40,7 +42,11 @@ public class EmployeeService {
         employeeRepository.save(employee);
     }
 
-    public String getSalary(String dateFrom, String dateTo, String emailOfEmployee){
-        return employeeRepository.salaryCountByDateStartAndEmail(dateFrom, dateTo, emailOfEmployee);
+    public String getSalary(Date dateFrom, Date dateTo, String emailOfEmployee){
+        return employeeRepository.salaryCountByDateStartAndEmail(parseDateToStringYyyyMmDd(dateFrom), parseDateToStringYyyyMmDd(dateTo), emailOfEmployee);
+    }
+
+    public int getMonthlyHoursWorked(Date dateFrom, Date dateTo, String emailOfEmployee){
+        return employeeRepository.monthlyHoursWorked(parseDateToStringYyyyMmDd(dateFrom), parseDateToStringYyyyMmDd(dateTo), emailOfEmployee);
     }
 }

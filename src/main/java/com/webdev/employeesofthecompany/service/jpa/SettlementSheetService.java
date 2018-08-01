@@ -37,4 +37,7 @@ public class SettlementSheetService {
     public void update(SettlementSheet settlementSheet){
         settlementSheetRepository.save(settlementSheet);
     }
+
+    public List<SettlementSheet> findSalaryDataByDateAndEmployeeId(String dateFrom, String dateTo, long employeeId){
+        return settlementSheetRepository.findSalaryDataByDateAndEmployeeId(dateFrom, dateTo, employeeId); }
 }
