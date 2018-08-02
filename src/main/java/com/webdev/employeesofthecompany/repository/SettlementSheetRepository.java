@@ -11,7 +11,7 @@ import java.util.List;
 @Repository
 public interface SettlementSheetRepository extends JpaRepository<SettlementSheet, Long> {
 
-    @Query(nativeQuery = true, value = "from settlement_sheet ss \n" +
+    @Query(nativeQuery = true, value = "select * from settlement_sheet ss " +
             "where ss.date between :dateFrom and :dateTo and ss.employee_id=:employeeId")
     List<SettlementSheet> findSalaryDataByDateAndEmployeeId(@Param("dateFrom") String dateFrom,
                                                          @Param("dateTo") String dateTo,

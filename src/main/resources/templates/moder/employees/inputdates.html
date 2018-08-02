@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Выбор периода</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+<div>
+<div th:replace="menu-header.html :: top-menu"/>
+    <div class="w3-container w3-margin">
+        <div class="w3-card">
+            <div style="height: 12px;"></div>
+            <div class="w3-container w3-yellow">
+                <h3>Выберите период</h3>
+            </div>
+            <div style="height: 12px;"></div>
+            <form action="/moder/employees/inputdates" method="post">
+                <div class="w3-container w3-light-grey">
+                    <input type="hidden" th:value="${employee.id}" name="employeeId"/>
+                    <h4>Дата з:</h4>
+                    <input class="w3-input w3-border" type="datetime-local" name="dateFrom"/>
+                    <h4>Дата по:</h4>
+                    <input class="w3-input w3-border" type="datetime-local" name="dateTo"/>
+                    <div style="height: 12px;"></div>
+                </div>
+
+                <div style="height: 12px;"></div>
+                <div class="w3-container w3-margin-top">
+                    <input type="submit" class="w3-button w3-right w3-green" value="Посмотреть данные о зарплате"/>
+                </div>
+                <div style="height: 12px;"></div>
+            </form>
+
+
+            <!--<div style="height: 12px;"></div>-->
+
+            <!--<div class="w3-container w3-panel">-->
+                <!--<a th:href="'/moder/employees/settlementsheet?employeeId=' + ${employee.id}" href="#" class="w3-button w3-blue">Посмотреть данные о зарплате</a>-->
+            <!--</div>-->
+            <!--<div style="height: 12px;"></div>-->
+        </div>
+    </div>
+</div>
+</body>
+</html>

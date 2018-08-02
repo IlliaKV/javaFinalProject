@@ -3,6 +3,7 @@ package com.webdev.employeesofthecompany.service.jpa;
 import com.webdev.employeesofthecompany.domain.Employee;
 import com.webdev.employeesofthecompany.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
@@ -16,6 +17,9 @@ public class EmployeeService {
 
     @Autowired
     private EmployeeRepository employeeRepository;
+
+    @Autowired
+    private BCryptPasswordEncoder bCryptPasswordEncoder;
 
     public Employee save(Employee employee){
         employeeRepository.save(employee);
@@ -54,4 +58,10 @@ public class EmployeeService {
     public int getMonthlyHoursWorked(Date dateFrom, Date dateTo, String emailOfEmployee){
         return employeeRepository.monthlyHoursWorked(parseDateToStringYyyyMmDd(dateFrom), parseDateToStringYyyyMmDd(dateTo), emailOfEmployee);
     }
+
+    public void setPassword(Employee employee, String password) {
+        String passwordHash = bCryptPasswordEncoder.encode(password);
+        employee.setPassword(passwordHash);
+    }
+
 }

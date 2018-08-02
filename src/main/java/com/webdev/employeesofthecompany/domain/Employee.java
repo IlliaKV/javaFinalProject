@@ -157,6 +157,15 @@ public class Employee {
         this.eventSheets = eventSheets;
     }
 
+    public boolean hasRole(String roleName) {
+        for (Role role : roles) {
+            if (role.getNameRole().equals(roleName)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

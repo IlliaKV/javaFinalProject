@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Редактирование департамента</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+<div>
+<div th:replace="menu-header.html :: top-menu"/>
+    <div class="w3-container w3-margin-top">
+        <div class="w3-card w3-grey">
+            <div class="w3-container w3-green">
+                <h3>Редактировать департамент</h3>
+            </div>
+        </div>
+
+        <form action="/moder/departments/edit" method="post">
+            <div class="w3-container w3-margin-top w3-padding w3-light-grey">
+                <input type="hidden" th:value="${department.id}" name="departmentId"/>
+                <h4>Название:</h4>
+                <input th:value="${department.nameDepartment}" class="w3-input w3-border" type="text" name="nameDepartment"/>
+
+                <div class="w3-container w3-margin-top">
+                    <a href="/moder/departments/departments" class="w3-button w3-gray">Отмена редактирования</a>
+                    <input type="submit" class="w3-button w3-right w3-green" value="Завершить редактирование"/>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>

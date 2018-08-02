@@ -42,9 +42,7 @@ public class AppReadyListener {
     public void appReady(){
         System.out.println("App ready");
 
-
-
-        //addDataToDB();
+        addDataToDB();
     }
 
     public void addDataToDB(){
@@ -111,7 +109,7 @@ public class AppReadyListener {
         employee1.setDepartment(departmentService.getById(1));
         employee1.setStatus(statusService.getById(1));
         Set<Role> roles = new LinkedHashSet<Role>();
-        roles.add(roleService.getRoleByName("USER"));
+        roles.add(roleService.getRoleByName("EMPLO"));
         employee1.setRoles(roles);
 
         Employee employee2 = new Employee();
@@ -124,7 +122,8 @@ public class AppReadyListener {
         employee2.setStatus(statusService.getById(1));
         Set<Role> roles2 = new LinkedHashSet<Role>();
         roles2.add(roleService.getRoleByName("ADMIN"));
-        roles2.add(roleService.getRoleByName("USER"));
+        roles2.add(roleService.getRoleByName("MODER"));
+        roles2.add(roleService.getRoleByName("EMPLO"));
         employee2.setRoles(roles2);
 
         employeeService.save(employee1);

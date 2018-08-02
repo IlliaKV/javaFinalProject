@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Создание события</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+<body>
+<div th:replace="menu-header.html :: top-menu"/>
+<div class="w3-container w3-margin-top">
+    <div class="w3-card w3-grey">
+        <div class="w3-container w3-green">
+            <h3>Добавить новое событие</h3>
+        </div>
+    </div>
+
+    <form action="/moder/events/create" method="post">
+        <div class="w3-container w3-margin-top w3-padding w3-light-grey">
+            <h4>Тип события:</h4>
+            <div class="w3-dropdown-hover" >
+                <select class="form-control" name="event">
+                    <option th:each="event : ${events}" th:value="${event.id}" th:text="${event.nameEvent}"></option>
+                </select>
+            </div>
+            <h4>Дата:</h4>
+            <input class="w3-input w3-border" type="datetime-local" name="dateStart"/>
+
+            <div class="w3-container w3-center w3-panel w3-card">
+                <div class="w3-container w3-green">
+                    <h3>Выберите сотрудников для события:</h3>
+                </div>
+                <div th:each="employee: ${Allemployees}" class="w3-container">
+                    <div class="w3-container w3-light-green">
+                        <input name="Allemployees" th:value="${employee.id}" class="w3-check" type="checkbox"/>
+                        <label th:text="${employee.firstName} + ' ' + ${employee.lastName}" class="w3-center">employee name</label>
+                    </div>
+                    <div class="w3-container w3-light-green">
+                        <h4>Количество часов:</h4>
+                        <input class="w3-input w3-border" type="text" name="hour"/>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+            <br style="height: 24px"/>
+
+            <div class="w3-container w3-margin-top">
+                <input type="submit" class="w3-button w3-right w3-green" value="Завершить"/>
+            </div>
+
+            <br style="height: 24px"/>
+        </div>
+    </form>
+</div>
+</div>
+</body>
+</html>

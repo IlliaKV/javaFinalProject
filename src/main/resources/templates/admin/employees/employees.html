@@ -12,7 +12,7 @@
         <div class="w3-card">
             <div class="w3-container w3-blue">
                 <h4 th:text="'Мы имеем ' + ${employees.size()} + ' сотрудн.'">Мы имеем 23 сотрудн.</h4>
-                <a href="/moder/employees/create" class="w3-button w3-light-blue">Добавить сотрудника</a>
+                <a href="/admin/employees/create" class="w3-button w3-light-blue">Добавить сотрудника</a>
             </div>
 
 
@@ -26,22 +26,19 @@
                         <h6 th:text="${employee.status != null} ? 'Статус: ' + ${employee.status.nameStatus} : 'Статус: нет'">status</h6>
                         <h6 th:text="${employee.position != null} ? 'Должность: ' + ${employee.position.namePosition} : 'Должность: нет'">position</h6>
                         <h6 th:text="${employee.position != null} ? 'Часовая ставка: ' + ${employee.position.hourlyRate} : 'Часовая ставка: нет'">hourlyRate</h6>
+                        <h6 th:text="'Права доступа: ' + ${employee.roles.toString()}">roles</h6>
                     </div>
 
 
                     <div class="w3-container w3-right w3-panel w3-card">
                         <div class="w3-container w3-panel">
-                            <a th:href="'/moder/employees/edit?employeeId=' + ${employee.id}" href="#" class="w3-button w3-light-blue">Редактировать</a>
+                            <a th:href="'/admin/employees/edit?employeeId=' + ${employee.id}" href="#" class="w3-button w3-light-blue">Редактировать</a>
                         </div>
                         <div class="w3-container w3-panel">
-                            <a th:href="'/moder/employees/delete?employeeId=' + ${employee.id}" href="#" class="w3-button w3-orange">Удалить</a>
+                            <a th:href="'/admin/employees/delete?employeeId=' + ${employee.id}" href="#" class="w3-button w3-orange">Удалить</a>
                         </div>
                         <div class="w3-container w3-panel">
-                            <a th:href="'/moder/employees/eventssheet?employeeId=' + ${employee.id}" href="#" class="w3-button w3-blue">События</a>
-                        </div>
-
-                        <div class="w3-container w3-panel">
-                            <a th:href="'/moder/employees/inputdates?employeeId=' + ${employee.id}" href="#" class="w3-button w3-blue">Данные о зарплате</a>
+                            <a th:href="'/admin/employees/eventssheet?employeeId=' + ${employee.id}" href="#" class="w3-button w3-blue">События</a>
                         </div>
                     </div>
 

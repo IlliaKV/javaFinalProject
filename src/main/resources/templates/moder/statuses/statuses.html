@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Статусы</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+<div>
+<div th:replace="menu-header.html :: top-menu"/>
+    <div class="w3-container w3-margin">
+        <div class="w3-card">
+            <div style="height: 12px;"></div>
+            <div class="w3-container w3-yellow">
+                <h3>Все статусы</h3> <div class="w3-container w3-yellow">
+                <a href="/moder/statuses/create" class="w3-button w3-light-blue">Добавить</a>
+            </div>
+            <div class="w3-container w3-light-grey">
+                <table class="w3-table w3-striped w3-bordered w3-border w3-hoverable">
+                    <tr>
+                        <th>ID</th>
+                        <th>Название</th>
+                    </tr>
+                    <tr th:each="status : ${statuses}">
+                        <td th:text="${status.id}">1</td>
+                        <td th:text="${status.nameStatus}">nameStatus</td>
+                        <td>
+                            <div class="w3-container w3-right">
+                                <a th:href="'/moder/statuses/edit/?statusId=' + ${status.id}" href="#" class="w3-button w3-light-blue">Редактировать</a>
+                                <a th:href="'/moder/statuses/delete/?statusId=' + ${status.id}" href="#" class="w3-button w3-yellow">Удалить</a>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

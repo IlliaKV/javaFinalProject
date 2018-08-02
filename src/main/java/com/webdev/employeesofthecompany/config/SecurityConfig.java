@@ -34,11 +34,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/").permitAll()
                 .antMatchers("/register").permitAll()
                 .antMatchers("/login").permitAll()
-                .antMatchers("/employee/**").hasAuthority("ADMIN")
-                .antMatchers("/employee/**").hasAuthority("MODER")
                 .antMatchers("/employee/**").hasAuthority("EMPLO")
-                .antMatchers("/moder/**").hasAuthority("ADMIN")
                 .antMatchers("/moder/**").hasAuthority("MODER")
+                .antMatchers("/admin/**").hasAuthority("ADMIN")
                 .and()
                 .formLogin()
                 .loginPage("/login")
@@ -63,10 +61,4 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
         return bCryptPasswordEncoder;
     }
-
-//    public static void main(String[] args) {
-//        BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
-//        System.out.println(bCryptPasswordEncoder.encode("admin"));
-//        System.out.println(bCryptPasswordEncoder.encode("user1"));
-//    }
 }

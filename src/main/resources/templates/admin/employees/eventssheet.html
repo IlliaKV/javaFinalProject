@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Cобытия</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+<div>
+<div th:replace="menu-header.html :: top-menu"/>
+    <div class="w3-container w3-margin">
+        <div class="w3-card">
+            <div style="height: 12px;"></div>
+            <div class="w3-container w3-yellow">
+                <h3>События</h3>
+                <h2 th:text="${employee.firstName} + ' ' + ${employee.lastName}">firstName</h2>
+            </div>
+            <div style="height: 12px;"></div>
+            <div class="w3-container w3-light-grey">
+                <table class="w3-table w3-striped w3-bordered w3-border w3-hoverable">
+                    <tr>
+                        <th>Событие</th>
+                        <th>Дата</th>
+                        <th>Количество часов для отработки</th>
+                    </tr>
+                    <tr th:each="eventSheet : ${eventSheets}">
+                        <td th:text="${eventSheet.event.nameEvent}">name Event</td>
+                        <td th:text="${#dates.format(eventSheet.dateStart, 'dd-MM-yyyy')}">date Start</td>
+                        <td th:text="${eventSheet.numberOfHours}">number Of Hours</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div style="height: 12px;"></div>
+
+            <div style="height: 12px;"></div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

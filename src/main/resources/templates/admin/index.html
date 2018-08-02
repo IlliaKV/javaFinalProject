@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Панель администратора</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+<body>
+<div th:replace="menu-header.html :: top-menu"/>
+    <div class="w3-container w3-margin">
+        <div class="w3-card">
+            <div class="w3-container">
+                <div class="w3-container w3-margin-top">
+                    <a href="/admin/employees/employees" class="w3-button w3-green">Сотрудники</a>
+                </div>
+            </div>
+            <div style="height: 12px;"></div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

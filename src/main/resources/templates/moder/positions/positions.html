@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Должности</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+<div>
+<div th:replace="menu-header.html :: top-menu"/>
+    <div class="w3-container w3-margin">
+        <div class="w3-card">
+            <div style="height: 12px;"></div>
+            <div class="w3-container w3-blue">
+                <h3>Все должности</h3> <div class="w3-container w3-blue">
+                <a href="/moder/positions/create" class="w3-button w3-light-blue">Добавить</a>
+            </div>
+            <div class="w3-container w3-light-grey">
+                <table class="w3-table w3-striped w3-bordered w3-border w3-hoverable">
+                    <tr>
+                        <th>ID</th>
+                        <th>Название должности</th>
+                        <th>Часовая ставка</th>
+                    </tr>
+                    <tr th:each="position : ${positions}">
+                        <td th:text="${position.id}">1</td>
+                        <td th:text="${position.namePosition}">namePosition</td>
+                        <td th:text="${position.hourlyRate}">hourlyRate</td>
+                        <td>
+                            <div class="w3-container w3-right">
+                                <a th:href="'/moder/positions/edit/?positionId=' + ${position.id}" href="#" class="w3-button w3-light-blue">Редактировать</a>
+                                <a th:href="'/moder/positions/delete/?positionId=' + ${position.id}" href="#" class="w3-button w3-yellow">Удалить</a>
+                            </div>
+                        </td>
+
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

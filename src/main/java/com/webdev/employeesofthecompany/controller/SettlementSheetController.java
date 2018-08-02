@@ -10,6 +10,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.text.ParseException;
+
+import static com.webdev.employeesofthecompany.service.ParseDateService.parseDateToStringYyyyMmDdTHhMm;
+
 @Controller
 public class SettlementSheetController extends BaseSecurityController {
 
@@ -19,8 +23,19 @@ public class SettlementSheetController extends BaseSecurityController {
     @Autowired
     private SettlementSheetService settlementSheetService;
 
+    @GetMapping("/moder/employees/settlementsheets")
+    public ModelAndView getSettlementsheetsOfEmployeeByData(@RequestParam(value = "employeeId", required = true) long employeeId,
+                                                      @RequestParam(value = "dateFrom", required = false) String dateFrom,
+                                                      @RequestParam(value = "dateTo", required = false) String dateTo) {
+        ModelAndView modelAndView = modelAndViewSecurityBase("moder/employees/settlementsheets");
+        modelAndView.addObject("employee", employeeService.getById(employeeId));
+        modelAndView.addObject("settlementSheets", settlementSheetService.findSalaryDataByDateAndEmployeeId(dateFrom, dateTo, employeeId));
+
+        return modelAndView;
+    }
+
     @GetMapping("/employees/settlementsheets")
-    public ModelAndView geеSettlementsheetsOfEmployee(@RequestParam(required = false, defaultValue = "42") String value) {
+    public ModelAndView getSettlementsheetsOfEmployee(@RequestParam(required = false, defaultValue = "42") String value) {
 
         ModelAndView modelAndView = modelAndViewSecurityBase("employees/settlementsheets");
         modelAndView.addObject("employee", getCurrentUser());

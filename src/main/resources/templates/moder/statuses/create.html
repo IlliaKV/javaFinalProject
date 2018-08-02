@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Создание статуса</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+<body>
+<div th:replace="menu-header.html :: top-menu"/>
+<div class="w3-container w3-margin-top">
+    <div class="w3-card w3-grey">
+        <div class="w3-container w3-yellow">
+            <h3>Добавить новый статус</h3>
+        </div>
+    </div>
+
+    <form action="/moder/statuses/create" method="post">
+        <div class="w3-container w3-margin-top w3-padding w3-light-grey">
+            <h4>Название:</h4>
+            <input class="w3-input w3-border" type="text" name="nameStatus" placeholder="Введите сюда название статуса..."/>
+
+            <br style="height: 24px"/>
+
+            <div class="w3-container w3-margin-top">
+                <input type="submit" class="w3-button w3-right w3-green" value="Завершить"/>
+            </div>
+
+            <br style="height: 24px"/>
+        </div>
+    </form>
+</div>
+</div>
+</body>
+</html>

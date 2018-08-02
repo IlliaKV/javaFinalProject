@@ -1,6 +1,7 @@
 <div th:fragment="top-menu" class="w3-block w3-gray">
     <a href="/" class="w3-button w3-tiny">Главная страница</a>
     <a href="/moder/index" class="w3-button w3-tiny">Панель модератора</a>
+    <a href="/admin/index" class="w3-button w3-tiny">Панель администратора</a>
 
     <span th:if="${emplo != null}" th:text="'Здравствуй ' + ${emplo.username} + '! Права доступа: ' + ${roles}"></span>
 

@@ -18,4 +18,9 @@ public class IndexController extends BaseSecurityController{
     public ModelAndView indexModer(){
         return modelAndViewSecurityBase("moder/index");
     }
+
+    @GetMapping("/admin/index")
+    public ModelAndView indexAdmin(){
+        return modelAndViewSecurityBase("admin/index");
+    }
 }
