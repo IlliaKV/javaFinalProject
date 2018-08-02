@@ -42,6 +42,11 @@ public class EmployeeService {
         employeeRepository.save(employee);
     }
 
+    public Employee getByEmail(String email) {
+        return employeeRepository.getEmployeeByEmail(email);
+    }
+
+
     public String getSalary(Date dateFrom, Date dateTo, String emailOfEmployee){
         return employeeRepository.salaryCountByDateStartAndEmail(parseDateToStringYyyyMmDd(dateFrom), parseDateToStringYyyyMmDd(dateTo), emailOfEmployee);
     }

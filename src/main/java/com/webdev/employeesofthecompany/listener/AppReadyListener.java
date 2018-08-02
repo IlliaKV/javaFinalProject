@@ -93,9 +93,12 @@ public class AppReadyListener {
         Role role1 = new Role();
         role1.setNameRole("ADMIN");
         role1.setDescription("Администратор");
+        Role role3 = new Role();
+        role3.setNameRole("MODER");
+        role3.setDescription("Модератор");
         Role role2 = new Role();
-        role2.setNameRole("USER");
-        role2.setDescription("Пользователь");
+        role2.setNameRole("EMPLO");
+        role2.setDescription("Сотрудник");
         roleService.save(role1);
         roleService.save(role2);
 

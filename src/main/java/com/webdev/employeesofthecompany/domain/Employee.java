@@ -28,6 +28,9 @@ public class Employee {
     @Column(name = "email")
     private String email;
 
+    @Column(name = "active")
+    private int active = 1;
+
     @ManyToMany
     @JoinTable(name = "employee_role", joinColumns = @JoinColumn(name = "employee_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles = new HashSet<>();
@@ -49,6 +52,14 @@ public class Employee {
 
     @OneToMany(mappedBy = "employee", fetch = FetchType.EAGER)
     private Set<EventSheet> eventSheets;
+
+    public int getActive() {
+        return active;
+    }
+
+    public void setActive(int active) {
+        this.active = active;
+    }
 
     public long getId() {
         return id;

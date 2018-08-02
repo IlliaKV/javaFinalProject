@@ -12,6 +12,10 @@ import java.util.Date;
 @Repository
 public interface EmployeeRepository extends JpaRepository<Employee, Long> {
 
+    @Query("from Employee e where e.email = :email")
+    Employee getEmployeeByEmail(@Param("email") String email);
+
+
     @Query(nativeQuery = true, value = "select sum(es.number_of_hours) * p.hourly_rate " +
             "from event e, event_sheet es, employee em, position p " +
             "where es.employee_id=em.id and es.event_id=e.id and em.position_id=p.id and es.date_start between :dateFrom and :dateTo and em.email=:emailOfEmployee")

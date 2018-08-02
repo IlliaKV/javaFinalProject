@@ -1,0 +1,9 @@
+<div th:fragment="top-menu" class="w3-block w3-gray">
+    <a href="/" class="w3-button w3-tiny">Главная страница</a>
+
+    <span th:if="${emplo != null}" th:text="'Здравствуй ' + ${emplo.username} + '! Права доступа: ' + ${roles}"></span>
+
+    <a th:if="${emplo != null}" href="/logout" class="w3-button w3-red w3-right w3-tiny">Выйти из системы</a>
+    <a th:if="${emplo == null}" href="/login" class="w3-button w3-green w3-right w3-tiny">Логин / Регистрация</a>
+
+</div>
