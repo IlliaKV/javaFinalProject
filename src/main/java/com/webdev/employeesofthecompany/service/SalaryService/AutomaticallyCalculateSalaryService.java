@@ -13,7 +13,6 @@ import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 
-import static com.webdev.employeesofthecompany.service.ParseDateService.parseDateToStringYyyyMmDd;
 
 @Service
 public class AutomaticallyCalculateSalaryService {
@@ -46,7 +45,6 @@ public class AutomaticallyCalculateSalaryService {
                     employee.getEmail()
             ));
             settlementSheetService.save(settlementSheet);
-            //System.out.println(employee.getEmail() + "\t\t\t" + employeeService.getSalary(parseDateToStringYyyyMmDd(new DateTime(date).minusMonths(1).toDate()), parseDateToStringYyyyMmDd(date), employee.getEmail()));
         }
     }
 }

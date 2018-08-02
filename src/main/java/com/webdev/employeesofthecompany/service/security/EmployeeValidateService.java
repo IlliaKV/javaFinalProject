@@ -19,9 +19,9 @@ public class EmployeeValidateService {
         public String getStringRepresenation() {
             switch (this) {
                 case ok: return "Ok";
-                case shortPassword: return "Короткий пароль. Довжина паролю має складати хоча б 5 символів";
-                case invalidEmail: return "Неправильний email";
-                case userExists: return "Користувач з таким email вже існує";
+                case shortPassword: return "Короткий пароль. Длина пароля должна быть хотя бы 5 символов";
+                case invalidEmail: return "Неверный email";
+                case userExists: return "Пользователь с таким email уже есть";
                 default: return "";
             }
         }

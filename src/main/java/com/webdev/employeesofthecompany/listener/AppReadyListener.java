@@ -40,8 +40,6 @@ public class AppReadyListener {
 
     @EventListener(ApplicationReadyEvent.class)
     public void appReady(){
-        System.out.println("App ready");
-
         addDataToDB();
     }
 

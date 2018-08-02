@@ -1,7 +1,6 @@
 package com.webdev.employeesofthecompany.controller;
 
 
-import com.sun.org.apache.xerces.internal.xs.StringList;
 import com.webdev.employeesofthecompany.domain.Employee;
 import com.webdev.employeesofthecompany.domain.Event;
 import com.webdev.employeesofthecompany.domain.EventSheet;
@@ -17,8 +16,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.text.ParseException;
-import java.util.ArrayList;
-import java.util.List;
 
 import static com.webdev.employeesofthecompany.service.ParseDateService.parseDateToStringYyyyMmDdTHhMm;
 
