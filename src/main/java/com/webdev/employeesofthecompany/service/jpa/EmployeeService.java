@@ -5,6 +5,8 @@ import com.webdev.employeesofthecompany.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -36,5 +38,9 @@ public class EmployeeService {
 
     public void update(Employee employee){
         employeeRepository.save(employee);
+    }
+
+    public BigDecimal getSalary(Date dateFrom, Date dateTo, String emailOfEmployee){
+        return employeeRepository.salaryCountByDateStartAndEmail(dateFrom, dateTo, emailOfEmployee);
     }
 }

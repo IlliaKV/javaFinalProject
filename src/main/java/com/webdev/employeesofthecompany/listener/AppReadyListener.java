@@ -1,6 +1,7 @@
 package com.webdev.employeesofthecompany.listener;
 
 import com.webdev.employeesofthecompany.domain.*;
+import com.webdev.employeesofthecompany.service.SalaryScheeduleService.SchedulerQuartzEveryMonthService;
 import com.webdev.employeesofthecompany.service.jpa.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
@@ -8,7 +9,6 @@ import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
-import java.util.List;
 import java.util.Set;
 import java.util.LinkedHashSet;
 
@@ -38,13 +38,22 @@ public class AppReadyListener {
     @Autowired
     private EventSheetService eventSheetService;
 
+    @Autowired
+    private SchedulerQuartzEveryMonthService schedulerQuartzEveryMonthService;
+
     @EventListener(ApplicationReadyEvent.class)
     public void appReady(){
         System.out.println("App ready");
 
+        try {
+            schedulerQuartzEveryMonthService.run();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         //addDataToDB();
     }
+
 
     public void addDataToDB(){
         //Add Positions
